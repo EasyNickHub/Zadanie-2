@@ -18,3 +18,14 @@ int main() {
     cin >> L;
     cout << "Введите диаметр трубы водопровода: ";
     cin >> d;
+    const float m = 0.001;
+    float w = 0.02 * S + 0.05 * n;
+    float Q = w / t;
+    float Re = d / m;
+
+    float l;
+    if (Re < 2300) {
+        l = 64.0 / Re; //Ламинарное
+    } else {
+        l = 0.3 / pow(Re, 0.25); //Турбулентное
+    }
